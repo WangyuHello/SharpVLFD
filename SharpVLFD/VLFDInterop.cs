@@ -38,12 +38,7 @@ namespace VLFD
 
         public static bool VLFD_AppChannelSelector(int iBoard, byte channel) => NativeExtension.Get().NativeMethods.VLFD_AppChannelSelector_init(iBoard, channel) == 1;
         public static bool VLFD_AppClose(int iBoard) => NativeExtension.Get().NativeMethods.VLFD_AppClose_init(iBoard) == 1;
-        public static string VLFD_GetLastErrorMsg(int iBoard) 
-        {
-            var p = NativeExtension.Get().NativeMethods.VLFD_GetLastErrorMsg_init(iBoard);
-            var str = Marshal.PtrToStringAnsi(p);
-            return str;
-        }
+        public static string VLFD_GetLastErrorMsg(int iBoard) => NativeExtension.Get().NativeMethods.VLFD_GetLastErrorMsg_init(iBoard);
 
     }
 }

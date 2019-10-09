@@ -60,13 +60,21 @@ namespace VLFD
         /// </summary>
         public class Delegates
         {
-            public delegate byte VLFD_ProgramFPGA_delegate(int iBoard, string BitFile);
-            public delegate byte VLFD_AppOpen_delegate(int iBoard, string SerialNo);
+            [UnmanagedFunctionPointer(CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+            public delegate byte VLFD_ProgramFPGA_delegate(int iBoard, [MarshalAs(UnmanagedType.LPStr)] string BitFile);
+            [UnmanagedFunctionPointer(CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+            public delegate byte VLFD_AppOpen_delegate(int iBoard, [MarshalAs(UnmanagedType.LPStr)] string SerialNo);
+            [UnmanagedFunctionPointer(CallingConvention.StdCall, CharSet = CharSet.Ansi)]
             public delegate byte VLFD_AppFIFOReadData_delegate(int iBoard, IntPtr Buffer, uint size);
+            [UnmanagedFunctionPointer(CallingConvention.StdCall, CharSet = CharSet.Ansi)]
             public delegate byte VLFD_AppFIFOWriteData_delegate(int iBoard, IntPtr Buffer, uint size);
+            [UnmanagedFunctionPointer(CallingConvention.StdCall, CharSet = CharSet.Ansi)]
             public delegate byte VLFD_AppChannelSelector_delegate(int iBoard, byte channel);
+            [UnmanagedFunctionPointer(CallingConvention.StdCall, CharSet = CharSet.Ansi)]
             public delegate byte VLFD_AppClose_delegate(int iBoard);
-            public delegate IntPtr VLFD_GetLastErrorMsg_delegate(int iBoard);
+            [UnmanagedFunctionPointer(CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+            [return: MarshalAs(UnmanagedType.LPStr)]
+            public delegate string VLFD_GetLastErrorMsg_delegate(int iBoard);
         }
 
         /// <summary>
@@ -76,28 +84,29 @@ namespace VLFD
         {
             private const string ImportName = "__Internal";
 
-            [DllImport(ImportName, CallingConvention = CallingConvention.StdCall)]
+            [DllImport(ImportName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
             public static extern byte VLFD_AppOpen(int iBoard, [MarshalAs(UnmanagedType.LPStr)] string SerialNo);
 
-            [DllImport(ImportName, CallingConvention = CallingConvention.StdCall)]
+            [DllImport(ImportName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
             public static extern byte VLFD_ProgramFPGA(int iBoard, [MarshalAs(UnmanagedType.LPStr)] string BitFile);
 
             //BOOL VLFD_AppFIFOReadData(int iBoard, WORD *Buffer, unsigned size);
-            [DllImport(ImportName, CallingConvention = CallingConvention.StdCall)]
+            [DllImport(ImportName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
             public static extern byte VLFD_AppFIFOReadData(int iBoard, IntPtr Buffer, uint size);
 
-            [DllImport(ImportName, CallingConvention = CallingConvention.StdCall)]
+            [DllImport(ImportName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
             public static extern byte VLFD_AppFIFOWriteData(int iBoard, IntPtr Buffer, uint size);
 
-            [DllImport(ImportName, CallingConvention = CallingConvention.StdCall)]
+            [DllImport(ImportName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
             public static extern byte VLFD_AppChannelSelector(int iBoard, byte channel);
 
-            [DllImport(ImportName, CallingConvention = CallingConvention.StdCall)]
+            [DllImport(ImportName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
             public static extern byte VLFD_AppClose(int iBoard);
 
             //const char *  VLFD_GetLastErrorMsg(int iBoard);
             [DllImport(ImportName, CallingConvention = CallingConvention.StdCall)]
-            public static extern IntPtr VLFD_GetLastErrorMsg(int iBoard);
+            [return: MarshalAs(UnmanagedType.LPStr)]
+            public static extern string VLFD_GetLastErrorMsg(int iBoard);
         }
 
         /// <summary>
@@ -107,28 +116,29 @@ namespace VLFD
         {
             private const string ImportName = "VLFD";
 
-            [DllImport(ImportName, CallingConvention = CallingConvention.StdCall)]
+            [DllImport(ImportName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
             public static extern byte VLFD_AppOpen(int iBoard,[MarshalAs(UnmanagedType.LPStr)] string SerialNo);
 
-            [DllImport(ImportName, CallingConvention = CallingConvention.StdCall)]
+            [DllImport(ImportName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
             public static extern byte VLFD_ProgramFPGA(int iBoard, [MarshalAs(UnmanagedType.LPStr)] string BitFile);
 
             //BOOL VLFD_AppFIFOReadData(int iBoard, WORD *Buffer, unsigned size);
-            [DllImport(ImportName, CallingConvention = CallingConvention.StdCall)]
+            [DllImport(ImportName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
             public static extern byte VLFD_AppFIFOReadData(int iBoard, IntPtr Buffer, uint size);
 
-            [DllImport(ImportName, CallingConvention = CallingConvention.StdCall)]
+            [DllImport(ImportName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
             public static extern byte VLFD_AppFIFOWriteData(int iBoard, IntPtr Buffer, uint size);
 
-            [DllImport(ImportName, CallingConvention = CallingConvention.StdCall)]
+            [DllImport(ImportName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
             public static extern byte VLFD_AppChannelSelector(int iBoard, byte channel);
 
-            [DllImport(ImportName, CallingConvention = CallingConvention.StdCall)]
+            [DllImport(ImportName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
             public static extern byte VLFD_AppClose(int iBoard);
 
             //const char *  VLFD_GetLastErrorMsg(int iBoard);
-            [DllImport(ImportName, CallingConvention = CallingConvention.StdCall)]
-            public static extern IntPtr VLFD_GetLastErrorMsg(int iBoard);
+            [DllImport(ImportName, CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+            [return: MarshalAs(UnmanagedType.LPStr)]
+            public static extern string VLFD_GetLastErrorMsg(int iBoard);
         }
     }
 }
