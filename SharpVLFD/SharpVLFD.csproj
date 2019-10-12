@@ -27,6 +27,24 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)\Native\linux\arm64\libVLFD.so">
+      <PackagePath>runtimes/linux/native/libVLFD.arm64.so</PackagePath>
+      <Pack>true</Pack>
+      <Link>libVLFD.arm64.so</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)\Native\linux\armhf\libVLFD.so">
+      <PackagePath>runtimes/linux/native/libVLFD.armhf.so</PackagePath>
+      <Pack>true</Pack>
+      <Link>libVLFD.armhf.so</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(MSBuildThisFileDirectory)\Native\linux\x64\libVLFD.so">
+      <PackagePath>runtimes/linux/native/libVLFD.x64.so</PackagePath>
+      <Pack>true</Pack>
+      <Link>libVLFD.x64.so</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="$(MSBuildThisFileDirectory)\Native\linux\x86\libVLFD.so">
       <PackagePath>runtimes/linux/native/libVLFD.x86.so</PackagePath>
       <Pack>true</Pack>
