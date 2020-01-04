@@ -14,10 +14,13 @@ namespace VLFD
 
         public readonly Delegates.VLFD_ProgramFPGA_delegate VLFD_ProgramFPGA_init;
         public readonly Delegates.VLFD_AppOpen_delegate VLFD_AppOpen_init;
+        public readonly Delegates.VLFD_IO_Open_delegate VLFD_IO_Open_init;
         public readonly Delegates.VLFD_AppFIFOReadData_delegate VLFD_AppFIFOReadData_init;
         public readonly Delegates.VLFD_AppFIFOWriteData_delegate VLFD_AppFIFOWriteData_init;
+        public readonly Delegates.VLFD_IO_WriteReadData_delegate VLFD_IO_WriteReadData_init;
         public readonly Delegates.VLFD_AppChannelSelector_delegate VLFD_AppChannelSelector_init;
         public readonly Delegates.VLFD_AppClose_delegate VLFD_AppClose_init;
+        public readonly Delegates.VLFD_IO_Close_delegate VLFD_IO_Close_init;
         public readonly Delegates.VLFD_GetLastErrorMsg_delegate VLFD_GetLastErrorMsg_init;
 
         #endregion
@@ -26,10 +29,13 @@ namespace VLFD
         {
             this.VLFD_ProgramFPGA_init = GetMethodDelegate<Delegates.VLFD_ProgramFPGA_delegate>(library);
             this.VLFD_AppOpen_init = GetMethodDelegate<Delegates.VLFD_AppOpen_delegate>(library);
+            this.VLFD_IO_Open_init = GetMethodDelegate<Delegates.VLFD_IO_Open_delegate>(library);
             this.VLFD_AppFIFOReadData_init = GetMethodDelegate<Delegates.VLFD_AppFIFOReadData_delegate>(library);
             this.VLFD_AppFIFOWriteData_init = GetMethodDelegate<Delegates.VLFD_AppFIFOWriteData_delegate>(library);
+            this.VLFD_IO_WriteReadData_init = GetMethodDelegate<Delegates.VLFD_IO_WriteReadData_delegate>(library);
             this.VLFD_AppChannelSelector_init = GetMethodDelegate<Delegates.VLFD_AppChannelSelector_delegate>(library);
             this.VLFD_AppClose_init = GetMethodDelegate<Delegates.VLFD_AppClose_delegate>(library);
+            this.VLFD_IO_Close_init = GetMethodDelegate<Delegates.VLFD_IO_Close_delegate>(library);
             this.VLFD_GetLastErrorMsg_init = GetMethodDelegate<Delegates.VLFD_GetLastErrorMsg_delegate>(library);
         }
 
@@ -70,6 +76,10 @@ namespace VLFD
 
             [UnmanagedFunctionPointer(CallingConvention.StdCall, CharSet = CharSet.Ansi)]
             [return: MarshalAs(UnmanagedType.I1)]
+            public delegate bool VLFD_IO_Open_delegate(int iBoard, [MarshalAs(UnmanagedType.LPStr)] string SerialNo);
+
+            [UnmanagedFunctionPointer(CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+            [return: MarshalAs(UnmanagedType.I1)]
             public delegate bool VLFD_AppFIFOReadData_delegate(int iBoard, IntPtr Buffer, uint size);
 
             [UnmanagedFunctionPointer(CallingConvention.StdCall, CharSet = CharSet.Ansi)]
@@ -78,11 +88,19 @@ namespace VLFD
 
             [UnmanagedFunctionPointer(CallingConvention.StdCall, CharSet = CharSet.Ansi)]
             [return: MarshalAs(UnmanagedType.I1)]
+            public delegate bool VLFD_IO_WriteReadData_delegate(int iBoard, IntPtr WriteBuffer, IntPtr ReadBuffer, uint size);
+
+            [UnmanagedFunctionPointer(CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+            [return: MarshalAs(UnmanagedType.I1)]
             public delegate bool VLFD_AppChannelSelector_delegate(int iBoard, byte channel);
 
             [UnmanagedFunctionPointer(CallingConvention.StdCall, CharSet = CharSet.Ansi)]
             [return: MarshalAs(UnmanagedType.I1)]
             public delegate bool VLFD_AppClose_delegate(int iBoard);
+
+            [UnmanagedFunctionPointer(CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+            [return: MarshalAs(UnmanagedType.I1)]
+            public delegate bool VLFD_IO_Close_delegate(int iBoard);
 
             [UnmanagedFunctionPointer(CallingConvention.StdCall, CharSet = CharSet.Ansi)]
             //[return: MarshalAs(UnmanagedType.LPStr)]

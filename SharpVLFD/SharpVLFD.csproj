@@ -19,7 +19,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.6">
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -27,19 +27,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="$(MSBuildThisFileDirectory)\Native\linux\arm64\libVLFD.so">
+    <Content Include="$(MSBuildThisFileDirectory)\..\..\VLFDDriver\arm64\Release\libVLFD.so">
       <PackagePath>runtimes/linux/native/libVLFD.arm64.so</PackagePath>
       <Pack>true</Pack>
       <Link>libVLFD.arm64.so</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="$(MSBuildThisFileDirectory)\Native\linux\armhf\libVLFD.so">
+    <Content Include="$(MSBuildThisFileDirectory)\..\..\VLFDDriver\armhf\Release\libVLFD.so">
       <PackagePath>runtimes/linux/native/libVLFD.armhf.so</PackagePath>
       <Pack>true</Pack>
       <Link>libVLFD.armhf.so</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="$(MSBuildThisFileDirectory)\Native\linux\x64\libVLFD.so">
+    <Content Include="$(MSBuildThisFileDirectory)\..\..\VLFDDriver\x64\Release\libVLFD.so">
       <PackagePath>runtimes/linux/native/libVLFD.x64.so</PackagePath>
       <Pack>true</Pack>
       <Link>libVLFD.x64.so</Link>
@@ -51,13 +51,13 @@
       <Link>libVLFD.x86.so</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="$(MSBuildThisFileDirectory)\Native\win\x86\VLFD.dll">
+    <Content Include="$(MSBuildThisFileDirectory)\..\..\VLFDDriver\Win32\Release\VLFD.dll">
       <PackagePath>runtimes/win/native/VLFD.x86.dll</PackagePath>
       <Pack>true</Pack>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Link>VLFD.x86.dll</Link>
     </Content>
-    <Content Include="$(MSBuildThisFileDirectory)\Native\win\x64\VLFD.dll">
+    <Content Include="$(MSBuildThisFileDirectory)\..\..\VLFDDriver\x64\Release\VLFD.dll">
       <PackagePath>runtimes/win/native/VLFD.x64.dll</PackagePath>
       <Pack>true</Pack>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
