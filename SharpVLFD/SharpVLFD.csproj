@@ -10,7 +10,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
     <AssemblyName>SharpVLFD</AssemblyName>
-    <Version>0.1.3</Version>
+    <Version>0.2.1</Version>
     <Description>VeriLink interface for C#</Description>
     <PackageProjectUrl>https://github.com/WangyuHello/SharpVLFD</PackageProjectUrl>
     <Copyright>Copyright (c) 2019 Wang Yu</Copyright>
@@ -27,43 +27,43 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="$(MSBuildThisFileDirectory)\..\..\VLFDDriver\Native\linux\arm64\libVLFD.so">
+    <Content Include="$(MSBuildThisFileDirectory)\Native\linux\arm64\libVLFD.so">
       <PackagePath>runtimes/linux/native/libVLFD.arm64.so</PackagePath>
       <Pack>true</Pack>
       <Link>libVLFD.arm64.so</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="$(MSBuildThisFileDirectory)\..\..\VLFDDriver\Native\linux\armhf\libVLFD.so">
+    <Content Include="$(MSBuildThisFileDirectory)\Native\linux\armhf\libVLFD.so">
       <PackagePath>runtimes/linux/native/libVLFD.armhf.so</PackagePath>
       <Pack>true</Pack>
       <Link>libVLFD.armhf.so</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="$(MSBuildThisFileDirectory)\..\..\VLFDDriver\Native\linux\x64\libVLFD.so">
+    <Content Include="$(MSBuildThisFileDirectory)\Native\linux\x64\libVLFD.so">
       <PackagePath>runtimes/linux/native/libVLFD.x64.so</PackagePath>
       <Pack>true</Pack>
       <Link>libVLFD.x64.so</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="$(MSBuildThisFileDirectory)\..\..\VLFDDriver\Native\linux\x86\libVLFD.so">
+    <Content Include="$(MSBuildThisFileDirectory)\Native\linux\x86\libVLFD.so">
       <PackagePath>runtimes/linux/native/libVLFD.x86.so</PackagePath>
       <Pack>true</Pack>
       <Link>libVLFD.x86.so</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="$(MSBuildThisFileDirectory)\..\..\VLFDDriver\Native\win\Win32\VLFD.dll">
+    <Content Include="$(MSBuildThisFileDirectory)\Native\win\Win32\VLFD.dll">
       <PackagePath>runtimes/win/native/VLFD.x86.dll</PackagePath>
       <Pack>true</Pack>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Link>VLFD.x86.dll</Link>
     </Content>
-    <Content Include="$(MSBuildThisFileDirectory)\..\..\VLFDDriver\Native\win\x64\VLFD.dll">
+    <Content Include="$(MSBuildThisFileDirectory)\Native\win\x64\VLFD.dll">
       <PackagePath>runtimes/win/native/VLFD.x64.dll</PackagePath>
       <Pack>true</Pack>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Link>VLFD.x64.dll</Link>
     </Content>
-    <Content Include="$(MSBuildThisFileDirectory)\..\..\VLFDDriver\Native\macos\x64\libVLFD.dylib">
+    <Content Include="$(MSBuildThisFileDirectory)\Native\macos\x64\libVLFD.dylib">
       <PackagePath>runtimes/macos/native/libVLFD.x64.dylib</PackagePath>
       <Pack>true</Pack>
       <Link>libVLFD.x64.dylib</Link>
