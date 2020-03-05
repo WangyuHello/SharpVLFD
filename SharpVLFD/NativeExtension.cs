@@ -163,7 +163,7 @@ namespace VLFD
             }
             if (PlatformApis.IsMacOSX)
             {
-               return "macos";
+               return "osx";
             }
             throw new InvalidOperationException("Unsupported platform.");
         }
