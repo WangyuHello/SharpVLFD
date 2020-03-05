@@ -26,49 +26,71 @@
     <PackageReference Include="System.Memory" Version="4.5.3" />
   </ItemGroup>
 
+  <!-- 如果本目录下Native存在则优先打包本地, 否则去VLFDDrive目录下找 -->
+  <!-- 如果这两个目录都没有则不打包 -->
+  <PropertyGroup>
+    <ThisNativeDir>$(MSBuildThisFileDirectory)\Native</ThisNativeDir>
+    <DriverNativeDir>$(MSBuildThisFileDirectory)\..\..\VLFDDriver\Native</DriverNativeDir>
+  </PropertyGroup>
+
+
   <ItemGroup>
-    <Content Include="$(MSBuildThisFileDirectory)\Native\linux\arm64\libVLFD.so">
+
+    <Content Include="$(ThisNativeDir)\linux\arm64\libVLFD.so" Condition="Exists('$(ThisNativeDir)\linux\arm64\libVLFD.so')">
       <PackagePath>runtimes/linux/native/libVLFD.arm64.so</PackagePath>
       <Pack>true</Pack>
       <Link>libVLFD.arm64.so</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="$(DriverNativeDir)\linux\arm64\libVLFD.so" Condition="!Exists('$(ThisNativeDir)\linux\arm64\libVLFD.so') And Exists('$(DriverNativeDir)\linux\arm64\libVLFD.so')">
+      <PackagePath>runtimes/linux/native/libVLFD.arm64.so</PackagePath>
+      <Pack>true</Pack>
+      <Link>libVLFD.arm64.so</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+
     <Content Include="$(MSBuildThisFileDirectory)\Native\linux\armhf\libVLFD.so">
       <PackagePath>runtimes/linux/native/libVLFD.armhf.so</PackagePath>
       <Pack>true</Pack>
       <Link>libVLFD.armhf.so</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+
     <Content Include="$(MSBuildThisFileDirectory)\Native\linux\x64\libVLFD.so">
       <PackagePath>runtimes/linux/native/libVLFD.x64.so</PackagePath>
       <Pack>true</Pack>
       <Link>libVLFD.x64.so</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+
     <Content Include="$(MSBuildThisFileDirectory)\Native\linux\x86\libVLFD.so">
       <PackagePath>runtimes/linux/native/libVLFD.x86.so</PackagePath>
       <Pack>true</Pack>
       <Link>libVLFD.x86.so</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+
     <Content Include="$(MSBuildThisFileDirectory)\Native\win\Win32\VLFD.dll">
       <PackagePath>runtimes/win/native/VLFD.x86.dll</PackagePath>
       <Pack>true</Pack>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Link>VLFD.x86.dll</Link>
     </Content>
+
     <Content Include="$(MSBuildThisFileDirectory)\Native\win\x64\VLFD.dll">
       <PackagePath>runtimes/win/native/VLFD.x64.dll</PackagePath>
       <Pack>true</Pack>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Link>VLFD.x64.dll</Link>
     </Content>
+
     <Content Include="$(MSBuildThisFileDirectory)\Native\macos\x64\libVLFD.dylib">
       <PackagePath>runtimes/macos/native/libVLFD.x64.dylib</PackagePath>
       <Pack>true</Pack>
       <Link>libVLFD.x64.dylib</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+
   </ItemGroup>
 
 
