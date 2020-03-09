@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
@@ -208,9 +209,46 @@ namespace VLFD
             }
             if (PlatformApis.IsMacOSX)
             {
-               return string.Format("libVLFD.{0}.dylib", architecture);
+                return GetMacOSNativeLibraryFilename(architecture);
             }
             throw new InvalidOperationException("Unsupported platform.");
+        }
+
+        private static Dictionary<string, string> MacOSVersionDict = new Dictionary<string, string>()
+        {
+            { "19.3","10.15.3" },
+            { "19.2","10.15.3" },
+            { "19.0","10.15.3" },
+            { "18.2","" },
+            { "18.0","" },
+            { "17.7","" },
+            { "17.6","" },
+            { "17.5","" },
+            { "17.0","" },
+        };
+
+        private static string GetMacOSVersion()
+        {
+            var v = Environment.OSVersion.Version;
+            var major = v.Major;
+            var minor = v.Minor;
+            var ver = $"{major}.{minor}";
+            var osName = "";
+            if (MacOSVersionDict.ContainsKey(ver))
+            {
+                osName = MacOSVersionDict[ver];
+            }
+            return osName;
+        }
+
+        private static string GetMacOSNativeLibraryFilename(string architecture)
+        {
+            var osName = GetMacOSVersion();
+            if (!string.IsNullOrEmpty(osName))
+            {
+                return string.Format($"libVLFD.{architecture}.{osName}.dylib");
+            }
+            return string.Format($"libVLFD.{architecture}.dylib");
         }
     }
 }
