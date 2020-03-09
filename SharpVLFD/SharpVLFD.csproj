@@ -128,9 +128,9 @@
     </Content>
 
     <Content Include="$(ThisNativeDir)\macos.10.15\x64\libVLFD.dylib" Condition="Exists('$(ThisNativeDir)\macos.10.15\x64\libVLFD.dylib')">
-      <PackagePath>runtimes/osx.10.15/native/libVLFD.x64.dylib</PackagePath>
+      <PackagePath>runtimes/osx/native/libVLFD.x64.10.15.dylib</PackagePath>
       <Pack>true</Pack>
-      <Link>libVLFD.x64.dylib</Link>
+      <Link>libVLFD.x64.10.15.dylib</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
 
