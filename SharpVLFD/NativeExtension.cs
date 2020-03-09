@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using System.Linq;
 
 namespace VLFD
 {
@@ -60,17 +61,21 @@ namespace VLFD
             // alongside the compiled assembly.
             // With dotnet cli projects targeting net45 framework, the native libraries (just the required ones)
             // are similarly copied to the built output folder, through the magic of Microsoft.NETCore.Platforms.
-            var classicPath = Path.Combine(assemblyDirectory, GetNativeLibraryFilename());
+            //var classicPath = Path.Combine(assemblyDirectory, GetNativeLibraryFilename());
+            var classicPath = GetNativeLibraryFilename().Select(lib => Path.Combine(assemblyDirectory, lib));
 
             // With dotnet cli project targeting netcoreapp1.0, projects will use Grpc.Core assembly directly in the location where it got restored
             // by nuget. We locate the native libraries based on known structure of Grpc.Core nuget package.
             // When "dotnet publish" is used, the runtimes directory is copied next to the published assemblies.
             string runtimesDirectory = string.Format("runtimes/{0}/native", GetPlatformString());
-            var netCorePublishedAppStylePath = Path.Combine(assemblyDirectory, runtimesDirectory, GetNativeLibraryFilename());
-            var netCoreAppStylePath = Path.Combine(assemblyDirectory, "../..", runtimesDirectory, GetNativeLibraryFilename());
+            //var netCorePublishedAppStylePath = Path.Combine(assemblyDirectory, runtimesDirectory, GetNativeLibraryFilename());
+            var netCorePublishedAppStylePath = GetNativeLibraryFilename().Select(lib => Path.Combine(assemblyDirectory, runtimesDirectory, lib));
+            //var netCoreAppStylePath = Path.Combine(assemblyDirectory, "../..", runtimesDirectory, GetNativeLibraryFilename());
+            var netCoreAppStylePath = GetNativeLibraryFilename().Select(lib => Path.Combine(assemblyDirectory, "../..", runtimesDirectory, lib));
 
             // Look for the native library in all possible locations in given order.
-            string[] paths = new[] { classicPath, netCorePublishedAppStylePath, netCoreAppStylePath };
+            //string[] paths = new[] { classicPath, netCorePublishedAppStylePath, netCoreAppStylePath };
+            string[] paths = classicPath.Concat(netCorePublishedAppStylePath).Concat(netCoreAppStylePath).ToArray();
             return new UnmanagedLibrary(paths);
         }
 
@@ -196,22 +201,27 @@ namespace VLFD
         }
 
         // platform specific file name of the extension library
-        private static string GetNativeLibraryFilename()
+        private static List<string> GetNativeLibraryFilename()
         {
             string architecture = GetArchitectureString();
+            var libs = new List<string>();
             if (PlatformApis.IsWindows)
             {
-                return string.Format("VLFD.{0}.dll", architecture);
+                libs.Add(string.Format("VLFD.{0}.dll", architecture));
             }
             if (PlatformApis.IsLinux)
             {
-                return string.Format("libVLFD.{0}.so", architecture);
+                libs.Add(string.Format("libVLFD.{0}.so", architecture));
             }
             if (PlatformApis.IsMacOSX)
             {
-                return GetMacOSNativeLibraryFilename(architecture);
+                libs.AddRange(GetMacOSNativeLibraryFilename(architecture));
             }
-            throw new InvalidOperationException("Unsupported platform.");
+            if (libs.Count == 0)
+            {
+                throw new InvalidOperationException("Unsupported platform.");
+            }
+            return libs;
         }
 
         private static Dictionary<string, string> MacOSVersionDict = new Dictionary<string, string>()
@@ -241,14 +251,16 @@ namespace VLFD
             return osName;
         }
 
-        private static string GetMacOSNativeLibraryFilename(string architecture)
+        private static List<string> GetMacOSNativeLibraryFilename(string architecture)
         {
             var osName = GetMacOSVersion();
+            var libs = new List<string>();
             if (!string.IsNullOrEmpty(osName))
             {
-                return string.Format($"libVLFD.{architecture}.{osName}.dylib");
+                libs.Add($"libVLFD.{architecture}.{osName}.dylib");
             }
-            return string.Format($"libVLFD.{architecture}.dylib");
+            libs.Add($"libVLFD.{architecture}.dylib");
+            return libs;
         }
     }
 }
