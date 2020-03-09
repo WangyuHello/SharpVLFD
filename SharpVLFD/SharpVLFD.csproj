@@ -10,7 +10,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
     <AssemblyName>SharpVLFD</AssemblyName>
-    <Version>0.2.2</Version>
+    <Version>0.3.0</Version>
     <Description>VeriLink interface for C#</Description>
     <PackageProjectUrl>https://github.com/WangyuHello/SharpVLFD</PackageProjectUrl>
     <Copyright>Copyright (c) 2019 Wang Yu</Copyright>
@@ -122,6 +122,13 @@
     </Content>
     <Content Include="$(DriverNativeDir)\macos\x64\libVLFD.dylib" Condition="!Exists('$(ThisNativeDir)\macos\x64\libVLFD.dylib') And Exists('$(DriverNativeDir)\macos\x64\libVLFD.dylib')">
       <PackagePath>runtimes/osx/native/libVLFD.x64.dylib</PackagePath>
+      <Pack>true</Pack>
+      <Link>libVLFD.x64.dylib</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+
+    <Content Include="$(ThisNativeDir)\macos.10.15\x64\libVLFD.dylib" Condition="Exists('$(ThisNativeDir)\macos.10.15\x64\libVLFD.dylib')">
+      <PackagePath>runtimes/osx.10.15/native/libVLFD.x64.dylib</PackagePath>
       <Pack>true</Pack>
       <Link>libVLFD.x64.dylib</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
