@@ -227,8 +227,8 @@ namespace VLFD
         private static Dictionary<string, string> MacOSVersionDict = new Dictionary<string, string>()
         {
             { "19.3","10.15.3" },
-            { "19.2","10.15.3" },
-            { "19.0","10.15.3" },
+            { "19.2","10.15.2" },
+            { "19.0","10.15.2" },
             { "18.2","" },
             { "18.0","" },
             { "17.7","" },
