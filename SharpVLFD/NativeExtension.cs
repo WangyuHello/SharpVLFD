@@ -215,51 +215,12 @@ namespace VLFD
             }
             if (PlatformApis.IsMacOSX)
             {
-                libs.AddRange(GetMacOSNativeLibraryFilename(architecture));
+                libs.AddRange(Dependency.GetMacOSNativeLibraryFilename(architecture));
             }
             if (libs.Count == 0)
             {
                 throw new InvalidOperationException("Unsupported platform.");
             }
-            return libs;
-        }
-
-        private static Dictionary<string, string> MacOSVersionDict = new Dictionary<string, string>()
-        {
-            { "19.3","10.15.3" },
-            { "19.2","10.15.2" },
-            { "19.0","10.15.2" },
-            { "18.2","" },
-            { "18.0","" },
-            { "17.7","" },
-            { "17.6","" },
-            { "17.5","" },
-            { "17.0","" },
-        };
-
-        private static string GetMacOSVersion()
-        {
-            var v = Environment.OSVersion.Version;
-            var major = v.Major;
-            var minor = v.Minor;
-            var ver = $"{major}.{minor}";
-            var osName = "";
-            if (MacOSVersionDict.ContainsKey(ver))
-            {
-                osName = MacOSVersionDict[ver];
-            }
-            return osName;
-        }
-
-        private static List<string> GetMacOSNativeLibraryFilename(string architecture)
-        {
-            var osName = GetMacOSVersion();
-            var libs = new List<string>();
-            if (!string.IsNullOrEmpty(osName))
-            {
-                libs.Add($"libVLFD.{architecture}.{osName}.dylib");
-            }
-            libs.Add($"libVLFD.{architecture}.dylib");
             return libs;
         }
     }
