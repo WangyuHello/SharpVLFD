@@ -4,6 +4,12 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Wang Yu</Authors>
     <Platforms>AnyCPU</Platforms>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <RepositoryUrl>https://github.com/WangyuHello/SharpVLFD/</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -11,8 +17,11 @@
     <LangVersion>latest</LangVersion>
     <AssemblyName>SharpVLFD</AssemblyName>
     <Version>0.4.1</Version>
+    <Product>SharpVLFD</Product>
+    <Company />
     <Description>VeriLink interface for C#</Description>
     <PackageProjectUrl>https://github.com/WangyuHello/SharpVLFD</PackageProjectUrl>
+    <PackageTags>FPGA</PackageTags>
     <Copyright>Copyright (c) 2019 Wang Yu</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -24,6 +33,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="System.Memory" Version="4.5.3" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
   </ItemGroup>
 
   <!-- 如果本目录下Native存在则优先打包本地, 否则去VLFDDrive目录下找 -->
