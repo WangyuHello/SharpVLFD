@@ -16,7 +16,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
     <AssemblyName>SharpVLFD</AssemblyName>
-    <Version>0.4.1</Version>
+    <Version>0.4.2</Version>
     <Product>SharpVLFD</Product>
     <Company />
     <Description>VeriLink interface for C#</Description>
