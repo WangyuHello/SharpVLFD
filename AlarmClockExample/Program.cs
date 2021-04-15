@@ -1,33 +1,9 @@
-# SharpVLFD
-复旦FPGA开发板C#编程接口
-
-VeriLink interface for C#
-
-# 如何安装 | How to install
-
-## 从Nuget包管理安装 | from the Nuget Package Manager
-```powershell
-Install-Package SharpVLFD -Version 0.4.2
-```
-
-## 从.NET命令行安装 | from .NET CLI
-```powershell
-dotnet add package SharpVLFD --version 0.4.2
-```
-
-# 如何使用 | How to use
-
-时钟示例
-
-Alarm Clock example
-
-```C#
-using System;
+﻿using System;
 using static VLFD.VLFDInterop;
 
 namespace AlarmClock
 {
-    class Programm
+    class Program
     {
         const int NOW_USE_BOARD = 0;
 
@@ -90,7 +66,7 @@ namespace AlarmClock
 
                 Console.WriteLine($"[{i}] hr_out[{hr_out}] min_out[{min_out}] sec_out[{sec_out}] hr_alarm[{hr_alarm}] min_alarm[{min_alarm}] alarm[{alarm}]");
             }
-
+    
             if (!VLFD_IO_Close(NOW_USE_BOARD))
             {
                 Console.WriteLine("error: VLFD_AppClose");
@@ -103,4 +79,3 @@ namespace AlarmClock
         }
     }
 }
-```
