@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29409.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VLFDLibUSBDriver", "VLFDLibUSBDriver\VLFDLibUSBDriver.vcxproj", "{18B713EA-107E-41F0-B843-D5968B59A411}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libusb-1.0 (static)", "libusb\msvc\libusb_static_2017.vcxproj", "{349EE8F9-7D25-4909-AAF5-FF3FADE72187}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|ARM64 = Debug|ARM64
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|ARM64 = Release|ARM64
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18B713EA-107E-41F0-B843-D5968B59A411}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{18B713EA-107E-41F0-B843-D5968B59A411}.Debug|ARM.ActiveCfg = Debug|Win32
+		{18B713EA-107E-41F0-B843-D5968B59A411}.Debug|ARM64.ActiveCfg = Debug|Win32
+		{18B713EA-107E-41F0-B843-D5968B59A411}.Debug|x64.ActiveCfg = Debug|x64
+		{18B713EA-107E-41F0-B843-D5968B59A411}.Debug|x64.Build.0 = Debug|x64
+		{18B713EA-107E-41F0-B843-D5968B59A411}.Debug|x86.ActiveCfg = Debug|Win32
+		{18B713EA-107E-41F0-B843-D5968B59A411}.Debug|x86.Build.0 = Debug|Win32
+		{18B713EA-107E-41F0-B843-D5968B59A411}.Release|Any CPU.ActiveCfg = Release|Win32
+		{18B713EA-107E-41F0-B843-D5968B59A411}.Release|ARM.ActiveCfg = Release|Win32
+		{18B713EA-107E-41F0-B843-D5968B59A411}.Release|ARM64.ActiveCfg = Release|Win32
+		{18B713EA-107E-41F0-B843-D5968B59A411}.Release|x64.ActiveCfg = Release|x64
+		{18B713EA-107E-41F0-B843-D5968B59A411}.Release|x64.Build.0 = Release|x64
+		{18B713EA-107E-41F0-B843-D5968B59A411}.Release|x86.ActiveCfg = Release|Win32
+		{18B713EA-107E-41F0-B843-D5968B59A411}.Release|x86.Build.0 = Release|Win32
+		{349EE8F9-7D25-4909-AAF5-FF3FADE72187}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{349EE8F9-7D25-4909-AAF5-FF3FADE72187}.Debug|ARM.ActiveCfg = Debug|Win32
+		{349EE8F9-7D25-4909-AAF5-FF3FADE72187}.Debug|ARM64.ActiveCfg = Debug|Win32
+		{349EE8F9-7D25-4909-AAF5-FF3FADE72187}.Debug|x64.ActiveCfg = Debug|x64
+		{349EE8F9-7D25-4909-AAF5-FF3FADE72187}.Debug|x64.Build.0 = Debug|x64
+		{349EE8F9-7D25-4909-AAF5-FF3FADE72187}.Debug|x86.ActiveCfg = Debug|Win32
+		{349EE8F9-7D25-4909-AAF5-FF3FADE72187}.Debug|x86.Build.0 = Debug|Win32
+		{349EE8F9-7D25-4909-AAF5-FF3FADE72187}.Release|Any CPU.ActiveCfg = Release|Win32
+		{349EE8F9-7D25-4909-AAF5-FF3FADE72187}.Release|ARM.ActiveCfg = Release|Win32
+		{349EE8F9-7D25-4909-AAF5-FF3FADE72187}.Release|ARM64.ActiveCfg = Release|Win32
+		{349EE8F9-7D25-4909-AAF5-FF3FADE72187}.Release|x64.ActiveCfg = Release|x64
+		{349EE8F9-7D25-4909-AAF5-FF3FADE72187}.Release|x64.Build.0 = Release|x64
+		{349EE8F9-7D25-4909-AAF5-FF3FADE72187}.Release|x86.ActiveCfg = Release|Win32
+		{349EE8F9-7D25-4909-AAF5-FF3FADE72187}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {27D0489A-4769-493E-8ABA-79AD0A9BC518}
+	EndGlobalSection
+EndGlobal
