@@ -43,7 +43,7 @@ bool TSMIMSVLFDProgrammer::StartProgram(int iBoard, const char* g_szBitFile1)
 //#endif
 	if (strlen(g_szBitFile1) != 0)
 	{
-		g_iErrCode = ProgramFPGA(iBoard, g_szBitFile1);
+		ProgramFPGA(iBoard, g_szBitFile1);
 	}
 
 	if (g_iErrCode != _SUCCESS_)
