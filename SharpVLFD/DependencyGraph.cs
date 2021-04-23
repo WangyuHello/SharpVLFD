@@ -15,11 +15,9 @@ namespace VLFD
             var macOS13 = new Dictionary<int, string>() { { 0, "10.13" } };
             var macOS14 = new Dictionary<int, string>() { { 0, "10.14" }, { 2, "10.14.1" } };
             var macOS15 = new Dictionary<int, string>() { { 0, "10.15" }, { 2, "10.15.2" }, { 3, "10.15.3" } };
-            var macOS11_2 = new Dictionary<int, string>() { { 0, "11.2" }, { 2, "11.2.1" }, { 3, "11.2.2" }, { 4, "11.2.3" } };
             MacOSDeps.Add(17, macOS13);
             MacOSDeps.Add(18, macOS14);
             MacOSDeps.Add(19, macOS15);
-            MacOSDeps.Add(20, macOS11_2);
         }
 
         public static List<string> GetMacOSNativeLibraryFilename(string architecture)
