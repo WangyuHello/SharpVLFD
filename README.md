@@ -7,12 +7,12 @@ VeriLink interface for C#
 
 ## 从Nuget包管理安装 | from the Nuget Package Manager
 ```powershell
-Install-Package SharpVLFD -Version 0.5.0
+Install-Package SharpVLFD -Version 0.4.2
 ```
 
 ## 从.NET命令行安装 | from .NET CLI
 ```powershell
-dotnet add package SharpVLFD --version 0.5.0
+dotnet add package SharpVLFD --version 0.4.2
 ```
 
 # 如何使用 | How to use
