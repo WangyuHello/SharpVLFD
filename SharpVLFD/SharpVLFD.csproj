@@ -16,7 +16,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
     <AssemblyName>SharpVLFD</AssemblyName>
-    <Version>0.4.2</Version>
+    <Version>0.5.0</Version>
     <Product>SharpVLFD</Product>
     <Company />
     <Description>VeriLink interface for C#</Description>
@@ -33,7 +33,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="System.Memory" Version="4.5.3" />
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
 
   <!-- 如果本目录下Native存在则优先打包本地, 否则去VLFDDrive目录下找 -->
