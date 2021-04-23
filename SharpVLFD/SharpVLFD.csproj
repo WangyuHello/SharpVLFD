@@ -137,6 +137,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
 
+    <Content Include="$(ThisNativeDir)\macos.11.2.3\libVLFD.dylib" Condition="Exists('$(ThisNativeDir)\macos.11.2.3\libVLFD.dylib')">
+      <PackagePath>runtimes/osx/native/libVLFD.x64.11.2.3.dylib</PackagePath>
+      <Pack>true</Pack>
+      <Link>libVLFD.x64.11.2.3.dylib</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+
     <Content Include="$(ThisNativeDir)\macos.10.15.3\x64\libVLFD.dylib" Condition="Exists('$(ThisNativeDir)\macos.10.15.3\x64\libVLFD.dylib')">
       <PackagePath>runtimes/osx/native/libVLFD.x64.10.15.3.dylib</PackagePath>
       <Pack>true</Pack>
